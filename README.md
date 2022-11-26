@@ -52,8 +52,8 @@ The app also has options to change the personal information and login credential
 ## Installation
 
 - Download the project or clone it
-   - download [CLICK AQUI]()
-   - clone [CLICK AQUI]()
+   - download [CLICK AQUI](https://github.com/elvin013/ToDoList-App/archive/refs/heads/main.zip)
+   - clone [CLICK AQUI](https://github.com/elvin013/ToDoList-App.git)
 
 - You need to open a console and go to the path where the project is located.
 ```js
