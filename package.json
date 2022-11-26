@@ -1,13 +1,13 @@
 {
   "name": "ToDoList",
   "version": "1.0.0",
-  "description": "",
+  "description": "ToDOList App is a web application where users can log in and view/create/update/delete tasks to perform.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
-  "author": "Frainer Encarnación",
+  "author": "Elvis Pouriet",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
