@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>{{pageTitle}}</title>
+  <title>{{pageTitle}}-ToDoList App</title>
   <link rel="stylesheet" href="/assets/css/{{#if logOut}}login{{else}}layout-style{{/if}}.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
   <!-- Boxicons CDN Link -->
@@ -41,7 +41,7 @@
 
   <body>
     <div class="sidebar">
-      <div class="logo-details">
+      <div class="logo-details" id="btn-menu">
         <i class='bx bx-notepad icon'></i>
         <div class="logo_name">To Do List</div>
         <i class='bx bx-menu' id="btn"></i>
@@ -53,21 +53,21 @@
         <span class="custom-tooltip">Search</span>
       </li>
       <li>
-        <a href="/home" class="{{#if homeActive}}bg-light{{/if}}">
+        <a href="/home" class="{{#if homeActive}}bg-light{{/if}}" id="btn-home">
           <i class='bx bx-home-alt {{#if homeActive}}text-dark{{/if}}'></i>
           <span class="links_name {{#if homeActive}}text-dark{{/if}}">Tasks</span>
         </a>
         <span class="custom-tooltip">Tasks</span>
       </li>
       <li>
-        <a href="/completed-tasks" class="{{#if completedActive}}bg-light{{/if}}">
+        <a href="/completed-tasks" class="{{#if completedActive}}bg-light{{/if}}" id="btn-completed-tasks">
           <i class='bx bx-check-square {{#if completedActive}}text-dark{{/if}}'></i>
           <span class="links_name {{#if completedActive}}text-dark{{/if}}">Completed</span>
         </a>
         <span class="custom-tooltip">Completed</span>
       </li>
       <li>
-        <a href="/pending-tasks" class="{{#if pendingActive}}bg-light{{/if}}">
+        <a href="/pending-tasks" class="{{#if pendingActive}}bg-light{{/if}}" id="btn-pending-tasks">
           <i class='bx bx-time-five {{#if pendingActive}}text-dark{{/if}}'></i>
           <span class="links_name {{#if pendingActive}}text-dark{{/if}}">Pending</span>
         </a>
@@ -75,7 +75,7 @@
       </li>
       {{#if isAuthenticated}}
       <li>
-        <a href="/user-information" class="{{#if userActive}}bg-light{{/if}}">
+        <a href="/user-information" class="{{#if userActive}}bg-light{{/if}}" id="btn-user-information">
           <i class='bx bx-user {{#if userActive}}text-dark{{/if}}'></i>
           <span class="links_name {{#if userActive}}text-dark{{/if}}">User</span>
         </a>

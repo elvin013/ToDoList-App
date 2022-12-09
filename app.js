@@ -16,7 +16,7 @@ const errorController = require("./controllers/ErrorController");
 const getData = require("./util/helpers/hbs/getData");
 const authRouter = require("./routes/auth");
 const homeRouter = require("./routes/taskRouter");
-
+const test = require("./tests/test");
 // Initialize express app
 const app = express();
 
@@ -108,6 +108,12 @@ sequelize
   .sync()
   .then((result) => {
     app.listen(5000);
+    let path = 'http://localhost:5000'
+    console.log('listening on: ', path)
+
+/*     setTimeout(
+      test.automationTest(path),
+      5000) */
   })
   .catch((err) => {
     console.log(err);
