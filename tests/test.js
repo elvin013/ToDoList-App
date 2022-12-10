@@ -40,19 +40,15 @@ async function automationTest(){
         );
 
         // Press the sign up button to open the register page
-/*         await driver.findElement(By.id('btn-register')).click();
+        await driver.get('http://localhost:5000/signup');
 
         //------------- Index Page ------------ 
 
         //Fill in all corresponding inputs for register
         await driver.findElement(By.id('full-name')).sendKeys(fullName);
-        await driver.findElement(By.id('username')).sendKeys(username);
+        await driver.findElement(By.id('username')).sendKeys(username+'3');
         await driver.findElement(By.id('password')).sendKeys(password)
-        await driver.findElement(By.id('confirmPassword')).sendKeys(password)
-
-        // Get the title of the page
-        var title = await driver.getTitle();
-        console.log('Title is:',title, ' ✅');
+        
 
         //Take screenshot of the Register page
         driver.takeScreenshot().then(
@@ -63,8 +59,13 @@ async function automationTest(){
             }
         );
 
+        // Get the title of the page
+        var title = await driver.getTitle();
+        console.log('Title is:',title, ' ✅');
+
+
         // Press the submit button to send form
-        await driver.findElement(By.id('btn-submit')).click(); */
+        await driver.findElement(By.id('confirmPassword')).sendKeys(password, Key.TAB, Key.ENTER)
 
         /*------------- Login Page ------------ */
             
@@ -245,7 +246,7 @@ async function automationTest(){
         await driver.findElement(By.id('btn-make-permanet')).click()
         driver.takeScreenshot().then(
             function(image, err) {
-                require('fs').writeFile(`tests/screenshots/ToDoList-Updating-profile.png`, image, 'base64', function(err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Make-Permanet.png`, image, 'base64', function(err) {
                     //console.log(err);
                 });
             }
