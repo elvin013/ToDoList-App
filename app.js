@@ -16,7 +16,7 @@ const errorController = require("./controllers/ErrorController");
 const getData = require("./util/helpers/hbs/getData");
 const authRouter = require("./routes/auth");
 const homeRouter = require("./routes/taskRouter");
-const test = require("./tests/test");
+//const test = require("./tests/test");
 // Initialize express app
 const app = express();
 

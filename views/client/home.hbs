@@ -7,7 +7,7 @@
                     you have created.
                 </p>
                 <p>
-                    <a class="btn btn-lg btn-primary mt-1 new-task" id="btn-create-task"><i class='bx bx-task'></i> Create new
+                    <a class="btn btn-lg btn-primary mt-1 new-task" id="btn-create-task" onclick='NewTask()'><i class='bi bi-file-earmark-plus-fill'></i> Create new
                         task</a>
                     <input id="_csrf" type="hidden" name="_csrf" value="{{csrfToken}}">
                 </p>
@@ -31,14 +31,14 @@
 
                                 {{task.content}}
 
-                                <button id="btn-delete" name="btn-delete-{{task.id}}" onclick="DeleteTask('{{task.id}}', '{{../place}}')"
+                                <button id="btn-delete-{{task.id}}" name="btn-delete-{{task.id}}" onclick="DeleteTask('{{task.id}}', '{{../place}}')"
                                     class="btn btn-sm btn-danger float-end" type="button"><i
-                                        class='bx bxs-trash'></i></button>
+                                        class='bi bi-trash-fill'></i></button>
 
 
-                                <a class="btn btn-sm btn-primary float-end me-2 edit-task" name="btn-edit-{{task.id}}"
+                                <a class="btn btn-sm btn-primary float-end me-2 edit-task" id="btn-edit-{{task.id}}"
                                     onclick='EditTask("{{task.content}}", "{{task.id}}", "{{../place}}")'><i
-                                        class='bx bxs-edit'></i></a>
+                                        class='bi bi-pencil-square'></i></a>
 
                             </div>
                         </div>

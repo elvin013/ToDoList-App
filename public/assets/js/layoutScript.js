@@ -30,7 +30,8 @@ This display a form whit the corresponding fields */
 let newTaskbtn = document.querySelector(".new-task");
 var csrfToken = document.getElementById("_csrf").value;
 
-newTaskbtn.addEventListener("click", async () => {
+async function NewTask() {
+  let csrfToken = document.getElementById("_csrf").value;
   const { value: task } = await Swal.fire({
     title: "Input your new task",
     html: `<form method="POST" action="/create-task" id="frm-new-task"> 
@@ -55,7 +56,7 @@ newTaskbtn.addEventListener("click", async () => {
       form.submit();
     }
   }
-});
+};
 
 /**
  * It takes the content of the task, the task id and the place where the task is located (inbox, today,
@@ -65,6 +66,7 @@ newTaskbtn.addEventListener("click", async () => {
  * @param place - is the place where the task is located. It can be either "todo" or "done"
  */
 async function EditTask(content, taskId, place) {
+  let csrfToken = document.getElementById("_csrf").value;
   const { value: task } = await Swal.fire({
     title: "Update your task",
     html: `<form method="POST" action="/edit-task/${place}" id="frm-edit-task"> 
@@ -143,13 +145,14 @@ function DeleteTask(taskId, place) {
  * @param fullName - The user's full name.
  */
 async function UpdateTemporalProfile(userId, fullName) {
+  let csrfToken = document.getElementById("_csrf").value;
   const { value: formValues } = await Swal.fire({
     title: "Update your profile",
     html: `
           <label" class="form-label text-secondary text-center mt-2 fw-bold">Just fill in the fields you want to update.</label>
           <form method="POST" action="/update-temporal-profile" id="frm-update-temporal-profile">
           <label for="fullName" class="form-label text-dark float-start mt-2 fw-bold">Full Name</label>
-          <input id="fullName" type="text" class="form-control border-secondary border border-2 mb-3"  placeholder="Enter your new full name" name="FullName" value='${fullName}' required>
+          <input id="fullName" type="text" class="form-control border-secondary border border-2 mb-3"  placeholder="Enter your new full name" name="FullName" required>
           <label for="userName" class="form-label text-dark float-start fw-bold">Username</label>
           <input id="username" type="text" class="form-control border-secondary border border-2 mb-3"  placeholder="Enter your new username" name="Username" required>
           <label for="password" class="form-label text-dark float-start fw-bold">New Password</label>
@@ -194,6 +197,7 @@ async function UpdateTemporalProfile(userId, fullName) {
  * @param fullName - The user's full name.
  */
 async function UpdatePermanentProfile(userId) {
+  let csrfToken = document.getElementById("_csrf").value;
   const { value: formValues } = await Swal.fire({
     title: "Update your profile",
     html: `
