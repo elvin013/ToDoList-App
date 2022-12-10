@@ -9,11 +9,11 @@
     <title>Automation Report</title>
 </head>
 <body style="background-color: #374151;">
-    <h1 class="text-white fw-bold text-center mt-5 mb-5">Reporte De Pruebas Automatizadas</h1>
+    <h1 class="text-white fw-bold mt-5 mb-5 text-center">Reporte De Pruebas Automatizadas</h1>
 
-    <div class="container container-content text-center p-5">
+    <div class="container container-content p-5">
         <div class="row">
-            <div class=" col-md-10 mx-auto">
+            <div class=" col-12 mx-auto">
                 <div class="container pt-5 p-5 bg-dark rounded-3">
                     <table id="table-invited" class=" table table-dark table-hover">
 
@@ -24,7 +24,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Requisitos de las Historias de Usuario</th>
+                                <th scope="col">Historia de Usuario</th>
+                                <th scope="col">Acción</th>
+                                <th scope="col">Entrada</th>
+                                <th scope="col">Respuesta esperada</th>
+                                <th scope="col">Respuesta obtenida</th>
                                 <th scope="col">Resultado de Prueba</th>
                                 <th scope="col">Status Code</th>
                             </tr>
@@ -34,97 +38,111 @@
                              <tr class="table-active">
                                 <td>1</td>
                                 <td>Registrar un nuevo usuario</td>
-                                <td>Exitoso ✅</td>
+                                <td>Rellena todos los campos del formulario y presiona el botón de registrar</td>
+                                <td>Name: Elvin Pouriet, Username: elvin013, Password: #Qwerty123</td>
+                                <td>Registro exitoso</td>
+                                <td>Registro exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>2</td>
-                                <td>Iniciar sesión con a cuenta creada</td>
-                                <td>Exitoso ✅</td>
+                                <td>Iniciar sesión con la cuenta creada</td>
+                                <td>Rellena los campos username y password</td>
+                                <td>Username: elvin013, Password: #Qwerty123</td>
+                                <td>Login exitoso</td>
+                                <td>Login exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>3</td>
                                 <td>Crear una nueva tarea</td>
-                                <td>Exitoso ✅</td>
+                                <td>Presiona el boton de nueva tarea e incerta texto en el</td>
+                                <td>Creando una nueva tarea de ejemplo</td>
+                                <td>Creación exitosa</td>
+                                <td>Creación exitosa</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>4</td>
-                                <td>Eliminar una tarea creda</td>
-                                <td>Exitoso ✅</td>
+                                <td>Editar y eliminar una tarea existente</td>
+                                <td>Edita una tarea exitosa y le cambia el contenido</td>
+                                <td>Editando la tarea creada</td>
+                                <td>Edición y eliminado exitoso</td>
+                                <td>Edición y eliminado exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>5</td>
-                                <td>Editar una tarea creada</td>
-                                <td>Exitoso ✅</td>
+                                <td>Editar la información personal</td>
+                                <td>Edita la información person al de un usuario en particular</td>
+                                <td>Name: Elvin Pouriet López</td>
+                                <td>Edición exitosa</td>
+                                <td>Edición exitosa</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>6</td>
-                                <td>Diferenciar las tareas pendientes y completadas</td>
-                                <td>Exitoso ✅</td>
+                                <td>Filtrar por las tareas pendientes</td>
+                                <td>Presiona el botón que filtra por las tareas pendientes</td>
+                                <td>Presionar botón de tareas pendientes</td>
+                                <td>Filtrado exitoso</td>
+                                <td>Filtrado exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>7</td>
-                                <td>Check y uncheck las tareas facilmente</td>
-                                <td>Exitoso ✅</td>
+                                <td>Filtrar por las tareas completadas</td>
+                                <td>Presiona el botón que filtra por las tareas completadas</td>
+                                <td>Presionar botón de tareas completadas</td>
+                                <td>Filtrado exitoso</td>
+                                <td>Filtrado exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>8</td>
-                                <td>Filtrar por las tareas pendientes</td>
-                                <td>Exitoso ✅</td>
+                                <td>Check y uncheck las tareas facilmente</td>
+                                <td>Cambia el estado de una tarea</td>
+                                <td>Hace click en una tarea 2 veces para cambiar su estado</td>
+                                <td>Check y uncheck exitoso</td>
+                                <td>Check y uncheck exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>9</td>
-                                <td>Filtrar por las tareas completadas</td>
-                                <td>Exitoso ✅</td>
+                                <td>Iniciar sesión con un usuario temporal</td>
+                                <td>Inicia sesión con un usuario proporcionado por una API</td>
+                                <td>Presiona el boton de obtener usuario temporal</td>
+                                <td>Login con usuario temporal exitoso</td>
+                                <td>Login con usuario temporal exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                             <tr class="table-active">
                                 <td>10</td>
-                                <td>Examinar la información personal del usuario logueado</td>
-                                <td>Exitoso ✅</td>
+                                <td>Convertir un usuario temporal en permanente</td>
+                                <td>Convierte un usuario temporal en permanente</td>
+                                <td>Presiona el boton de hacer usuario permanente</td>
+                                <td>Cambio de estatus exitoso</td>
+                                <td>Cambio de estatus exitoso</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                              <tr class="table-active">
                                 <td>11</td>
-                                <td>Editar la información personal del usuario</td>
-                                <td>Exitoso ✅</td>
-                                <td>200</td>
-                             </tr>
-                             <tr class="table-active">
-                                <td>12</td>
-                                <td>Editar las credenciales de inicio de sesión</td>
-                                <td>Exitoso ✅</td>
-                                <td>200</td>
-                             </tr>
-                             <tr class="table-active">
-                                <td>13</td>
-                                <td>Cerra sesión facilmente</td>
-                                <td>Exitoso ✅</td>
-                                <td>200</td>
-                             </tr>
-                             <tr class="table-active">
-                                <td>14</td>
-                                <td>Iniciar sesión con un usuario temporal</td>
-                                <td>Exitoso ✅</td>
-                                <td>200</td>
-                             </tr>
-                             <tr class="table-active">
-                                <td>15</td>
-                                <td>Editar la información personal del usuario temporal</td>
-                                <td>Exitoso ✅</td>
-                                <td>200</td>
-                             </tr>
-                             <tr class="table-active">
-                                <td>16</td>
-                                <td>Editar las credenciales de inicio de sesión del usuario temporal</td>
-                                <td>Exitoso ✅</td>
+                                <td>Editar información personal de un usuario temporal</td>
+                                <td>Cambia algunos valores de la información personal del usuario</td>
+                                <td>Edita los datos del usuario temporal</td>
+                                <td>Edición exitosa</td>
+                                <td>Edición exitosa</td>
+                                <td>Aprobada ✅</td>
                                 <td>200</td>
                              </tr>
                             

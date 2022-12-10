@@ -11,7 +11,7 @@
                     <i class="text-white fs-5 fw-bold d-block">If you don't have an account you can log in with a
                         temporary user.</i>
                 <form method="post" action="/new-temporal-user" class="text-center">
-                    <button type="submit" class="btn btn-info btn-lg mt-1"><i class='bx bx-user'></i> Get temporal
+                    <button type="submit" id="btn-get-temporal-user" class="btn btn-info btn-lg mt-1"><i class='bx bx-user'></i> Get temporal
                         user</button>
                     <input id="_csrf" type="hidden" name="_csrf" value="{{csrfToken}}">
                 </form>
@@ -40,7 +40,7 @@
                                     class="form-control bg-dark text-white border-white form-control-lg" id="password"
                                     name="password" required>
                             </div>
-                            <button class="btn btn-primary  btn-lg float-end" type="submit" id="btn-submit"><i class='bx bx-log-in'></i>
+                            <button class="btn btn-primary  btn-lg float-end" type="submit" id="btn-submit">
                                 Sign in</button>
                             <a class="btn btn-light  btn-lg float-end me-2" href="/signup" id="btn-register"><i
                                     class='bx bx-user-plus'></i> Sing up</a>

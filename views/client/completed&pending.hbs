@@ -4,12 +4,12 @@
         <div class="row">
             <div class="col-lg-6 col-md-8 mx-auto">
                 {{#if completedTask}}
-                <h1 class="fw-bold mt-4 text-white"><i class='bx bxs-badge-check'></i> Completed</h1>
+                <h1 class="fw-bold mt-4 text-white"><i class='bi bi-clipboard-check-fill'></i> Completed</h1>
                 <p class="lead text text-secondary mt-1">Welcome to your completed task list, here we will show you all
                     your completed tasks.
                 </p>
                 {{else}}
-                <h1 class="fw-bold mt-4 text-white"><i class='bx bxs-time-five'></i> Pending</h1>
+                <h1 class="fw-bold mt-4 text-white"><i class='bi bi-clock-fill'></i> Pending</h1>
                 <p class="lead text text-secondary mt-1">Welcome to your pending task list, here we will show you all
                     your pending tasks.
                 </p>
@@ -36,12 +36,12 @@
 
                                 <button id="btn-delete" onclick="DeleteTask('{{task.id}}', '{{../place}}')"
                                     class="btn btn-sm btn-danger float-end" type="button"><i
-                                        class='bx bxs-trash'></i></button>
+                                        class='bi bi-trash-fill'></i></button>
 
 
                                 <a class="btn btn-sm btn-primary float-end me-2 edit-task"
                                     onclick='EditTask("{{task.content}}", "{{task.id}}", "{{../place}}")'><i
-                                        class='bx bxs-edit'></i></a>
+                                        class='bi bi-pencil-square'></i></a>
 
                             </div>
                         </div>

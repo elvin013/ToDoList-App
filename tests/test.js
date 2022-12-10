@@ -9,6 +9,11 @@ async function automationTest(){
     var username = "elvin013"
     var email = "elvinpouriet@gmail.com"
     var password = "#Qwerty123"
+    var exampleTask = 'Creating an example task #'
+    var editTask = 'Editing an existend task'
+    var fullNameEdited = 'Elvin Pouriet Editado'
+    var fullNameTemporalUser = 'Fulano Sanchez '
+    var passwordOfTemporalUser = 'default123'
  
        
         //Inicialize the selenium web driver with the crome browser
@@ -66,7 +71,7 @@ async function automationTest(){
         //Now the app will be redirect to login
         // Fill in the login credentials to sign in 
         await driver.findElement(By.id('username')).sendKeys(username);
-        await driver.findElement(By.id('password')).sendKeys(password);
+        await driver.findElement(By.id('password')).sendKeys(password, Key.ENTER);
 
         // Get the title of the page
         var title = await driver.getTitle();
@@ -81,7 +86,7 @@ async function automationTest(){
             }
         );
 
-        await driver.findElement(By.id('btn-submit')).click()
+        //await driver.findElement(By.id('btn-submit')).click()
 
         /*------------- Home Page ------------ */
         // Get the title of the page
@@ -96,6 +101,35 @@ async function automationTest(){
                 });
             }
         );
+
+        //Create 10 examples tasks
+        for(let i = 1; i < 10; i++){
+
+            await driver.findElement(By.id('btn-create-task')).click()
+
+            if(i===10){
+                driver.takeScreenshot().then(
+                    function(image, err) {
+                        require('fs').writeFile(`tests/screenshots/ToDoList-Creating-task.png`, image, 'base64', function(err) {
+                            //console.log(err);
+                        });
+                    }
+                );
+            }
+
+            await driver.findElement(By.id('content')).sendKeys(exampleTask+i, Key.ENTER)
+
+
+        }
+
+        driver.takeScreenshot().then(
+            function(image, err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Created-task.png`, image, 'base64', function(err) {
+                    //console.log(err);
+                });
+            }
+        );
+
 
         await driver.findElement(By.id('btn-menu')).click()
         await driver.findElement(By.id('btn-pending-tasks')).click()
@@ -147,115 +181,81 @@ async function automationTest(){
             }
         );
 
+        /*------------- Update profile information ------------ */
+
+        await driver.findElement(By.id('btn-update-profile')).click()
+        driver.takeScreenshot().then(
+            function(image, err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Editing-task.png`, image, 'base64', function(err) {
+                    //console.log(err);
+                });
+            }
+        );
+        await driver.findElement(By.id('fullName')).sendKeys(fullNameEdited, Key.ENTER)
+        await driver.findElement(By.id('currentlyPassword')).sendKeys(password, Key.TAB, Key.TAB, Key.TAB, Key.ENTER)
+
+        driver.takeScreenshot().then(
+            function(image, err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Updating-profile.png`, image, 'base64', function(err) {
+                    //console.log(err);
+                });
+            }
+        );
+
         await driver.findElement(By.id('btn-menu')).click()
         await driver.findElement(By.id('log_out')).click()
 
-        /*------------- Completed tasks Page ------------ */
-        // Get the title of the page
-        var title = await driver.getTitle();
-        console.log('Title is:',title, ' ✅');
 
-        //Take screenshot of the Home page
+        /*------------- Login with temporal user ------------ */
+
+        await driver.findElement(By.id('btn-get-temporal-user')).click()
+        await driver.findElement(By.id('btn-menu')).click()
+        await driver.findElement(By.id('btn-user-information')).click()
         driver.takeScreenshot().then(
             function(image, err) {
-                require('fs').writeFile(`tests/screenshots/ToDoList-logOut.png`, image, 'base64', function(err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-profile-temporal-user.png`, image, 'base64', function(err) {
                     //console.log(err);
                 });
             }
-        );
-
-
-        /*//Fetch al blog
-        await driver.get("https://www.lambdatest.com/blog/");
-        var title = await driver.getTitle();
-        console.log('Interact with the blog without log in ✅')
-
-        driver.takeScreenshot().then(
-            function(image, err) {
-                require('fs').writeFile(`tests/screenshots/${title}.png`, image, 'base64', function(err) {
-                    //console.log(err);
-                });
-            }
-        );
-
-        // Hace una busqueda en el foro
-        await driver.findElement(By.name('s')).sendKeys(searchString, Key.ENTER)
-        var title = await driver.getTitle();
-        console.log('Title is:',title, ' ✅');
-
-        driver.takeScreenshot().then(
-            function(image, err) {
-                require('fs').writeFile(`tests/screenshots/Search in the Blog.png`, image, 'base64', function(err) {
-                    //console.log(err);
-                });
-            }
-        );
-
-        await driver.get("https://www.lambdatest.com/blog/web-scraping-with-javascript-and-selenium/");
-        var title = await driver.getTitle();
-        console.log('Title is:',title, ' ✅');
-
-        //Screen del resultado de la busqueda
-        driver.takeScreenshot().then(
-            function(image, err) {
-                require('fs').writeFile(`tests/screenshots/Solomon Eseme Publication.png`, image, 'base64', function(err) {
-                    //console.log(err);
-                });
-            }
-        );
-
-
-        // Fetch a la documentacion
-        await driver.get("https://www.lambdatest.com/support/docs/");
-        var title = await driver.getTitle();
-        console.log('Title is:',title, ' ✅');
-
-        driver.takeScreenshot().then(
-            function(image, err) {
-                require('fs').writeFile(`tests/screenshots/documentation.png`, image, 'base64', function(err) {
-                    //console.log(err);
-                });
-            }
-        );
-
-        console.log('Interact with the documentation without log in ✅')
+        ); 
         
-        //Busca en la documentación: 'Selenium With Javascript'
-        await driver.findElement(By.className('DocSearch-Button')).click()
-        //await driver.findElement(By.className('DocSearch-Input')).sendKeys(docSearchig, Key.ENTER)
-    
+        /*------------- Update profile information of temporal user ------------ */
 
-        await driver.get("https://www.lambdatest.com/support/docs/javascript-with-selenium-running-javascript-automation-scripts-on-lambdatest-selenium-grid/");
-        var title = await driver.getTitle();
-        console.log('Title is:',title, ' ✅');
-
-        //await driver.findElement(By.linkText('Javascript')).click();
+        await driver.findElement(By.id('btn-update-profile')).click()
+        driver.takeScreenshot().then(
+            function(image, err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Editing-task.png`, image, 'base64', function(err) {
+                    //console.log(err);
+                });
+            }
+        );
+        await driver.findElement(By.id('fullName')).sendKeys(fullNameTemporalUser, Key.ENTER)
+        await driver.findElement(By.id('password')).sendKeys(passwordOfTemporalUser, Key.ENTER)
+        await driver.findElement(By.id('confirmPassword')).sendKeys(passwordOfTemporalUser, Key.TAB, Key.ENTER)
 
         driver.takeScreenshot().then(
             function(image, err) {
-                require('fs').writeFile(`tests/screenshots/Javascript-Selenium-Search.png`, image, 'base64', function(err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Updating-temporal-profile.png`, image, 'base64', function(err) {
                     //console.log(err);
                 });
             }
         );
 
-
-        // Cambia el tema de la pagina al black mode
-        await driver.findElement(By.className('toggleButton_gllP')).click();
-
-        //Toma screeshot ahora en el black mode
+        /*------------- Make permanent a temporal user ------------ */
+        await driver.findElement(By.id('btn-make-permanet')).click()
         driver.takeScreenshot().then(
             function(image, err) {
-                require('fs').writeFile(`tests/screenshots/Switch to black mode.png`, image, 'base64', function(err) {
+                require('fs').writeFile(`tests/screenshots/ToDoList-Updating-profile.png`, image, 'base64', function(err) {
                     //console.log(err);
                 });
             }
         );
+
         
-        console.log('Switch to black mode successfully ✅') */
- 
         //Cierra en navegador y termina el programa
         await driver.quit();
+
+        //Automatic testing successfully
         console.log('\n\n- - - - - - - - - - - - - - - -\nAutomatic testing of user stories \n- - - - - - - - - - - - - - - -\n')
         console.log('- Register a new user ✅')
         console.log('- Log in with a user and password ✅')
